@@ -57,8 +57,8 @@ public class LocationService extends Service
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 4000, 0, listener);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 4000, 0, listener);
         */
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 45000, 0, listener);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 45000, 0, listener);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, listener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, listener);
 
 
         }
@@ -164,7 +164,7 @@ public class LocationService extends Service
         public void onLocationChanged(final Location loc)
         {
             Log.i("**************", "Location changed");
-            if(isBetterLocation(loc, previousBestLocation)) {
+           // if(isBetterLocation(loc, previousBestLocation)) {
 
                 loc.getLatitude();
                 loc.getLongitude();
@@ -175,7 +175,7 @@ public class LocationService extends Service
 
                 Log.d("LOCATION", "LON:" + String.valueOf(loc.getLongitude()) + " LAT:" + String.valueOf(loc.getLatitude()));
                 //Toast.makeText( getApplicationContext(), "LON:" + String.valueOf(loc.getLongitude()) + " LAT" + String.valueOf(loc.getLatitude()), Toast.LENGTH_SHORT ).show();
-            }
+            //}
         }
 
         public void onProviderDisabled(String provider)
